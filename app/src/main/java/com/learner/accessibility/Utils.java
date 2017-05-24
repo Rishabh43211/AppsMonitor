@@ -37,7 +37,27 @@ public class Utils {
         return applicationName;
     }
 
-    // To check if service is enabled
+    /**
+     * @param context
+     * @param packageName
+     * @return the App Icon corresponding to the packageName
+     */
+    public static Drawable getAppIcon(Context context, String packageName) {
+        try {
+            return context.getPackageManager().getApplicationIcon(packageName);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    /**
+     * Evaluate the status (ON/OFF) of the {@link android.accessibilityservice.AccessibilityService}
+     * [{@link AppsMonitoringService} in our case].
+     *
+     * @param mContext
+     * @return true, if the {@link AppsMonitoringService} is enabled, false otherwise
+     */
     public static boolean isAccessibilitySettingsOn(Context mContext) {
         int accessibilityEnabled = 0;
         final String service = mContext.getPackageName() + "/" + AppsMonitoringService.class.getCanonicalName();
@@ -73,14 +93,5 @@ public class Utils {
         }
 
         return false;
-    }
-
-    public static Drawable getAppIcon(Context context, String packageName) {
-        try {
-            return context.getPackageManager().getApplicationIcon(packageName);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-            return null;
-        }
     }
 }
