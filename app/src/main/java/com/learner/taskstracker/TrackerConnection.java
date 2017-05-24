@@ -13,7 +13,7 @@ public class TrackerConnection implements ServiceConnection {
 
     private final Handler mHandler;
 
-    TrackerConnection(Handler handler) {
+    public TrackerConnection(Handler handler) {
         this.mHandler = handler;
     }
 

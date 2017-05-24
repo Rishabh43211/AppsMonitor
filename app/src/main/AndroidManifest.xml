@@ -20,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".AppsMonitorAPI21ImplActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".taskstracker.DisplayTasksActivity" />
+        <activity android:name=".AppsMonitorAPI19ImplActivity" />
 
         <service android:name=".taskstracker.TasksTrackingService" />
 

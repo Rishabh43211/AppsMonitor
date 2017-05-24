@@ -3,7 +3,6 @@ package com.learner.taskstracker;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +17,8 @@ public class MainHandler extends Handler {
     public static final int RUNNING_TASKS = 11;
 
     private final Listener mListener;
-    private List<TaskDetail> mInitialTaskDetails;
-    private List<TaskDetail> mRunningTasks;
+    private List<String> mInitialTasks;
+    private List<String> mRunningTasks;
 
     public MainHandler(Listener mListener) {
         super(Looper.getMainLooper());
@@ -29,20 +28,19 @@ public class MainHandler extends Handler {
     @Override
     public void handleMessage(Message msg) {
 
-        List<TaskDetail> taskDetails = (List<TaskDetail>) msg.obj;
-        if (mInitialTaskDetails == null) {
-            Log.e(TAG, "mInitialTaskDetails = null");
-            mInitialTaskDetails = taskDetails;
+        List<String> packageNames = (List<String>) msg.obj;
+        if (mInitialTasks == null) {
+            mInitialTasks = packageNames;
             return;
         }
 
         // Remove all details present when App started
-        Log.e(TAG, "removeAll() = " + taskDetails.removeAll(mInitialTaskDetails));
+        packageNames.removeAll(mInitialTasks);
 
-        if (mRunningTasks == null) mRunningTasks = new ArrayList<>(taskDetails);
+        if (mRunningTasks == null) mRunningTasks = new ArrayList<>(packageNames);
         else {
-            taskDetails.removeAll(mRunningTasks);
-            mRunningTasks.addAll(taskDetails);
+            packageNames.removeAll(mRunningTasks);
+            mRunningTasks.addAll(packageNames);
         }
 
         // Notify the Listeners
@@ -51,6 +49,6 @@ public class MainHandler extends Handler {
 
     public interface Listener {
 
-        void onTaskChanged(List<TaskDetail> newTasks);
+        void onTaskChanged(List<String> newTasks);
     }
 }
