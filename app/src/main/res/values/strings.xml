@@ -1,4 +1,8 @@
 <resources>
-    <string name="app_name">Learner</string>
-    <string name="msg_rnd_task"><![CDATA[R&D Task]]></string>
+    <string name="app_name">R&amp;D-Task</string>
+    <string name="desc_accessibility">Service monitors Apps used by user when R&amp;D-Task is in Launched</string>
+    <string name="title_apps_launched">Apps Launched</string>
+    <string name="hint_enable_accessibility_service"><![CDATA[Please enable R&D-Task in Accessibility.]]></string>
+    <string name="hint_settings_required">Setting Required</string>
+    <string name="hint_go_to_settings">Go to Settings</string>
 </resources>

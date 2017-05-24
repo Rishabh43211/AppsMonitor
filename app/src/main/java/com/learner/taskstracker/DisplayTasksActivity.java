@@ -48,6 +48,6 @@ public class DisplayTasksActivity extends AppCompatActivity implements MainHandl
 
     @Override
     public void onTaskChanged(final List<TaskDetail> taskDetails) {
-        rvTasksList.setAdapter(new TasksListAdapter(taskDetails));
+//        rvTasksList.setAdapter(new TasksListAdapter(taskDetails));
     }
 }

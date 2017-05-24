@@ -2,4 +2,5 @@
 <resources>
     <dimen name="dimens_8">8dp</dimen>
     <dimen name="text_size_16">16sp</dimen>
+    <dimen name="dimen_app_icon">24dp</dimen>
 </resources>
