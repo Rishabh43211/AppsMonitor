@@ -2,7 +2,7 @@ package com.learner;
 
 import android.app.Application;
 
-import com.learner.accessibility.AppLifecycleCallbacksImpl;
+import com.learner.accessibility.MonitoringAppLifecycleCallbacks;
 
 /**
  * Developer: Rishabh Dutt Sharma
@@ -14,6 +14,6 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        registerActivityLifecycleCallbacks(new AppLifecycleCallbacksImpl());
+        registerActivityLifecycleCallbacks(new MonitoringAppLifecycleCallbacks());
     }
 }

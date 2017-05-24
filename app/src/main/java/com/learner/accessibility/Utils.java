@@ -1,12 +1,9 @@
 package com.learner.accessibility;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
@@ -43,15 +40,14 @@ public class Utils {
     // To check if service is enabled
     public static boolean isAccessibilitySettingsOn(Context mContext) {
         int accessibilityEnabled = 0;
-        final String service = mContext.getPackageName() + "/" + TaskWatcherService.class.getCanonicalName();
+        final String service = mContext.getPackageName() + "/" + AppsMonitoringService.class.getCanonicalName();
         try {
             accessibilityEnabled = Settings.Secure.getInt(
                     mContext.getApplicationContext().getContentResolver(),
                     android.provider.Settings.Secure.ACCESSIBILITY_ENABLED);
             Log.v(TAG, "accessibilityEnabled = " + accessibilityEnabled);
         } catch (Settings.SettingNotFoundException e) {
-            Log.e(TAG, "Error finding setting, default accessibility to not found: "
-                    + e.getMessage());
+            Log.e(TAG, "Error finding setting, default accessibility to not found: " + e.getMessage());
         }
         TextUtils.SimpleStringSplitter mStringColonSplitter = new TextUtils.SimpleStringSplitter(':');
 
@@ -77,19 +73,6 @@ public class Utils {
         }
 
         return false;
-    }
-
-
-    public static Intent provideAccessibilityIntent(Bundle extras) {
-        Intent intent = new Intent();
-        intent.setClassName("com.android.settings", "com.android.settings.Settings");
-        intent.setAction(Intent.ACTION_MAIN);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
-                | Intent.FLAG_ACTIVITY_CLEAR_TASK
-                | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-        intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT, "the fragment which you want show");
-        intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT_ARGUMENTS, extras);
-        return intent;
     }
 
     public static Drawable getAppIcon(Context context, String packageName) {

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 
 /**
- * Broadcast Receiver to process intents broadcast from {@link TaskWatcherService}
+ * Broadcast Receiver to process intents broadcast from {@link AppsMonitoringService}
  * <p>
  * Developer: Rishabh Dutt Sharma
  * Dated: 5/23/2017.

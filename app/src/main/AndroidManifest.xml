@@ -34,7 +34,7 @@
         <service android:name=".taskstracker.TasksTrackingService" />
 
         <service
-            android:name=".accessibility.TaskWatcherService"
+            android:name=".accessibility.AppsMonitoringService"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>

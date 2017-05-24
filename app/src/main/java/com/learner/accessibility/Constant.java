@@ -10,4 +10,5 @@ public interface Constant {
     String ACTION_MONITORING_PACKAGE_LAUNCHED = "com.learner.ACTION_MONITORING_PACKAGE_LAUNCHED";
 
     String EXTRA_PACKAGE_NAME = "extra_package_name";
+    String EXTRA_PACKAGE_LAUNCH_STATUS = "EXTRA_PACKAGE_LAUNCH_STATUS";
 }
