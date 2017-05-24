@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
@@ -15,6 +16,13 @@ import static android.content.ContentValues.TAG;
  * Dated: 5/23/2017.
  */
 public class Utils {
+
+    /**
+     * @return true, if the Device OS is Lollipop or higher, false otherwise
+     */
+    public static boolean isNewApi() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
+    }
 
     /**
      * @param context

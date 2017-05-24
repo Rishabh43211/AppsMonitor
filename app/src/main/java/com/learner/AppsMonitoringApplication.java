@@ -3,6 +3,7 @@ package com.learner;
 import android.app.Application;
 
 import com.learner.accessibility.MonitoringAppLifecycleCallbacks;
+import com.learner.accessibility.Utils;
 
 /**
  * Monitors the Apps used by the User during Lifetime of
@@ -17,10 +18,12 @@ public class AppsMonitoringApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        /* {@link MonitoringAppLifecycleCallbacks} ensures that
-         * {@link com.learner.accessibility.AppsMonitoringService}
-         * knows the Launch and End of this Application, so that it
-         * sends the Broadcasts only when they're required. */
-        registerActivityLifecycleCallbacks(new MonitoringAppLifecycleCallbacks());
+        // Checks if the Device is Installed NEW_APIS
+        if (Utils.isNewApi())
+            /* {@link MonitoringAppLifecycleCallbacks} ensures that
+             * {@link com.learner.accessibility.AppsMonitoringService}
+             * knows the Launch and End of this Application, so that it
+             * sends the Broadcasts only when they're required. */
+            registerActivityLifecycleCallbacks(new MonitoringAppLifecycleCallbacks());
     }
 }

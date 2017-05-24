@@ -1,11 +1,11 @@
 package com.learner;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.learner.accessibility.Utils;
 import com.learner.delegate.AppMonitoringDelegateActivity;
 import com.learner.delegate.AppsMonitoringDelegateImplV19;
 import com.learner.delegate.AppsMonitoringDelegateImplV21;
@@ -24,8 +24,7 @@ public class LauncherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         Class<? extends AppMonitoringDelegateActivity> intendedDelegateClass
-                = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
-                ? AppsMonitoringDelegateImplV21.class : AppsMonitoringDelegateImplV19.class;
+                = Utils.isNewApi() ? AppsMonitoringDelegateImplV21.class : AppsMonitoringDelegateImplV19.class;
 
         Intent taskMonitoringIntent = new Intent(this, intendedDelegateClass);
         startActivity(taskMonitoringIntent);
