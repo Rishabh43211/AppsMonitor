@@ -28,8 +28,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activityimpl.AppsMonitoringAPI19ImplActivity" />
-        <activity android:name=".activityimpl.AppsMonitoringAPI21ImplActivity" />
+        <activity android:name=".delegate.AppsMonitoringDelegateImplV19" />
+        <activity android:name=".delegate.AppsMonitoringDelegateImplV21" />
 
         <service android:name=".taskstracker.TasksTrackingService" />
 

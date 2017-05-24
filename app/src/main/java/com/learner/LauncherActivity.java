@@ -6,9 +6,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.learner.activityimpl.AppMonitoringBaseActivity;
-import com.learner.activityimpl.AppsMonitoringAPI19ImplActivity;
-import com.learner.activityimpl.AppsMonitoringAPI21ImplActivity;
+import com.learner.delegate.AppMonitoringDelegateActivity;
+import com.learner.delegate.AppsMonitoringDelegateImplV19;
+import com.learner.delegate.AppsMonitoringDelegateImplV21;
 
 /**
  * Developer: Rishabh Dutt Sharma
@@ -20,8 +20,8 @@ public class LauncherActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Class<? extends AppMonitoringBaseActivity> clazz = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
-                ? AppsMonitoringAPI21ImplActivity.class : AppsMonitoringAPI19ImplActivity.class;
+        Class<? extends AppMonitoringDelegateActivity> clazz = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
+                ? AppsMonitoringDelegateImplV21.class : AppsMonitoringDelegateImplV19.class;
         Intent taskMonitoringIntent = new Intent(this, clazz);
         startActivity(taskMonitoringIntent);
         finish();

@@ -1,4 +1,4 @@
-package com.learner.activityimpl;
+package com.learner.delegate;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class AppsMonitoringAPI21ImplActivity extends AppMonitoringBaseActivity implements PackageLaunchReceiver.OnTaskUpdatedListener {
+public class AppsMonitoringDelegateImplV21 extends AppMonitoringDelegateActivity implements PackageLaunchReceiver.OnPackageReceivedListener {
 
     private PackageLaunchReceiver mLaunchReceiver;
     private Set<String> mPackagesLaunched = new TreeSet<>();
@@ -45,7 +45,7 @@ public class AppsMonitoringAPI21ImplActivity extends AppMonitoringBaseActivity i
     }
 
     @Override
-    public void onTaskUpdated(String packageName) {
+    public void onPackageReceived(String packageName) {
         if (!packageName.equals("com.learner")) mPackagesLaunched.add(packageName);
         displayTasks(new ArrayList<>(mPackagesLaunched));
     }

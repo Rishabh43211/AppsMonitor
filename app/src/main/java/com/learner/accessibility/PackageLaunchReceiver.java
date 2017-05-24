@@ -12,20 +12,20 @@ import android.content.Intent;
  */
 public class PackageLaunchReceiver extends BroadcastReceiver {
 
-    private final OnTaskUpdatedListener mListener;
+    private final OnPackageReceivedListener mListener;
 
-    public PackageLaunchReceiver(OnTaskUpdatedListener mListener) {
+    public PackageLaunchReceiver(OnPackageReceivedListener mListener) {
         this.mListener = mListener;
     }
 
     @Override
     public void onReceive(Context context, Intent intent) {
         if (intent.hasExtra(Constant.EXTRA_PACKAGE_NAME) && mListener != null)
-            mListener.onTaskUpdated(intent.getStringExtra(Constant.EXTRA_PACKAGE_NAME));
+            mListener.onPackageReceived(intent.getStringExtra(Constant.EXTRA_PACKAGE_NAME));
     }
 
-    public interface OnTaskUpdatedListener {
+    public interface OnPackageReceivedListener {
 
-        void onTaskUpdated(String packageName);
+        void onPackageReceived(String packageName);
     }
 }

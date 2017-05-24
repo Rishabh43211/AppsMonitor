@@ -1,4 +1,4 @@
-package com.learner.activityimpl;
+package com.learner.delegate;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -12,7 +12,7 @@ import com.learner.adapter.AppsListingAdapter;
 
 import java.util.ArrayList;
 
-public class AppMonitoringBaseActivity extends AppCompatActivity {
+public class AppMonitoringDelegateActivity extends AppCompatActivity {
 
     private RecyclerView rvTasksList;
 
