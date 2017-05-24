@@ -1,4 +1,4 @@
-package com.learner;
+package com.learner.activityimpl;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -7,11 +7,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
-import com.learner.accessibility.TasksListAdapter;
+import com.learner.R;
+import com.learner.adapter.AppsListingAdapter;
 
 import java.util.ArrayList;
 
-public class BaseActivity extends AppCompatActivity {
+public class AppMonitoringBaseActivity extends AppCompatActivity {
 
     private RecyclerView rvTasksList;
 
@@ -31,6 +32,6 @@ public class BaseActivity extends AppCompatActivity {
     }
 
     protected void displayTasks(ArrayList<String> tasks) {
-        rvTasksList.setAdapter(new TasksListAdapter(this, tasks));
+        rvTasksList.setAdapter(new AppsListingAdapter(this, tasks));
     }
 }

@@ -1,4 +1,4 @@
-package com.learner.accessibility;
+package com.learner.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.learner.R;
+import com.learner.accessibility.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,12 +18,12 @@ import java.util.List;
  * Developer: Rishabh Dutt Sharma
  * Dated: 5/22/2017.
  */
-public class TasksListAdapter extends RecyclerView.Adapter<TasksListAdapter.TaskItemViewHolder> {
+public class AppsListingAdapter extends RecyclerView.Adapter<AppsListingAdapter.TaskItemViewHolder> {
 
     private final Context mContext;
     private final List<String> mPackageNames;
 
-    public TasksListAdapter(Context context, ArrayList<String> packageNames) {
+    public AppsListingAdapter(Context context, ArrayList<String> packageNames) {
         this.mContext = context;
         this.mPackageNames = packageNames;
     }

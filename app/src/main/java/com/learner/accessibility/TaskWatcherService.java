@@ -2,15 +2,10 @@ package com.learner.accessibility;
 
 
 import android.accessibilityservice.AccessibilityService;
-import android.accessibilityservice.AccessibilityServiceInfo;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * Developer: Rishabh Dutt Sharma
@@ -37,29 +32,29 @@ public class TaskWatcherService extends AccessibilityService {
     public void onInterrupt() {
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    @Override
-    protected void onServiceConnected() {
-        AccessibilityServiceInfo serviceInfo = getServiceInfo();
-
-        if (serviceInfo == null) {
-            serviceInfo = new AccessibilityServiceInfo();
-            Log.e(TAG, "onServiceConnected: serviceInfo initialized");
-        }
-
-        serviceInfo.flags = AccessibilityServiceInfo.DEFAULT;
-
-        // Called multiple times when a new Application is Launched
-        serviceInfo.eventTypes = AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED;
-
-        // Not specifying package-names would allow to listen to all package-names
-        // serviceInfo.packageNames = new String[]{"desired_package_name"};
-
-        // Feedback of Service
-        serviceInfo.feedbackType = AccessibilityServiceInfo.FEEDBACK_GENERIC;
-
-//        serviceInfo.notificationTimeout = 100;
-
-        this.setServiceInfo(serviceInfo);
-    }
+//    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+//    @Override
+//    protected void onServiceConnected() {
+//        AccessibilityServiceInfo serviceInfo = getServiceInfo();
+//
+//        if (serviceInfo == null) {
+//            serviceInfo = new AccessibilityServiceInfo();
+//            Log.e(TAG, "onServiceConnected: serviceInfo initialized");
+//        }
+//
+//        serviceInfo.flags = AccessibilityServiceInfo.DEFAULT;
+//
+//        // Called multiple times when a new Application is Launched
+//        serviceInfo.eventTypes = AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED;
+//
+//        // Not specifying package-names would allow to listen to all package-names
+//        // serviceInfo.packageNames = new String[]{"desired_package_name"};
+//
+//        // Feedback of Service
+//        serviceInfo.feedbackType = AccessibilityServiceInfo.FEEDBACK_GENERIC;
+//
+////        serviceInfo.notificationTimeout = 100;
+//
+//        this.setServiceInfo(serviceInfo);
+//    }
 }

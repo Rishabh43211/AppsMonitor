@@ -1,4 +1,4 @@
-package com.learner;
+package com.learner.activityimpl;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,7 +16,7 @@ import java.util.List;
  * Developer: Rishabh Dutt Sharma
  * Dated: 5/22/2017.
  */
-public class AppsMonitorAPI19ImplActivity extends BaseActivity implements MainHandler.Listener {
+public class AppsMonitoringAPI19ImplActivity extends AppMonitoringBaseActivity implements MainHandler.Listener {
 
     private TrackerConnection mTrackerConnection;
 

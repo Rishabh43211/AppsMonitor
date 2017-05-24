@@ -1,10 +1,12 @@
-package com.learner.usagetracker;
+package com.learner;
 
 import android.app.Application;
 
+import com.learner.accessibility.AppLifecycleCallbacksImpl;
+
 /**
  * Developer: Rishabh Dutt Sharma
- * Dated: 5/23/2017.
+ * Dated: 5/24/2017.
  */
 public class BaseApplication extends Application {
 
@@ -12,7 +14,6 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        // Initialize the UsageTracker
-        UsageTracker.initialize(this);
+        registerActivityLifecycleCallbacks(new AppLifecycleCallbacksImpl());
     }
 }

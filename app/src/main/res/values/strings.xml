@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">R&amp;D-Task</string>
-    <string name="desc_accessibility">Service monitors Apps used by user when R&amp;D-Task is in Launched</string>
+    <string name="app_name">Apps Monitoring (R&amp;D)</string>
+    <string name="desc_accessibility">Service to monitor the apps launched by user when Apps-Monitoring (R&amp;D) app is running.</string>
     <string name="title_apps_launched">Apps Launched</string>
-    <string name="hint_enable_accessibility_service"><![CDATA[Please enable R&D-Task in Accessibility.]]></string>
-    <string name="hint_settings_required">Setting Required</string>
+    <string name="hint_enable_accessibility_service">Please enable Apps Monitoring (R&amp;D) service in Accessibility.</string>
+    <string name="hint_enable_setting">Enable Feature</string>
     <string name="hint_go_to_settings">Go to Settings</string>
 </resources>

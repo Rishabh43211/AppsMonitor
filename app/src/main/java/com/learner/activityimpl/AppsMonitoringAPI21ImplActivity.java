@@ -1,4 +1,4 @@
-package com.learner;
+package com.learner.activityimpl;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AlertDialog;
 
+import com.learner.R;
 import com.learner.accessibility.Constant;
 import com.learner.accessibility.PackageLaunchReceiver;
 import com.learner.accessibility.Utils;
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class AppsMonitorAPI21ImplActivity extends BaseActivity implements PackageLaunchReceiver.OnTaskUpdatedListener {
+public class AppsMonitoringAPI21ImplActivity extends AppMonitoringBaseActivity implements PackageLaunchReceiver.OnTaskUpdatedListener {
 
     private PackageLaunchReceiver mLaunchReceiver;
     private Set<String> mPackagesLaunched = new TreeSet<>();
@@ -33,7 +34,7 @@ public class AppsMonitorAPI21ImplActivity extends BaseActivity implements Packag
         super.onResume();
 
         if (!Utils.isAccessibilitySettingsOn(this)) new AlertDialog.Builder(this)
-                .setTitle(R.string.hint_settings_required)
+                .setTitle(R.string.hint_enable_setting)
                 .setMessage(R.string.hint_enable_accessibility_service)
                 .setPositiveButton(R.string.hint_go_to_settings, new DialogInterface.OnClickListener() {
                     @Override

@@ -7,5 +7,7 @@ package com.learner.accessibility;
 public interface Constant {
 
     String ACTION_PACKAGE_LAUNCH_MASK = "com.learner.ACTION_PACKAGE_LAUNCH_MASK";
+    String ACTION_MONITORING_PACKAGE_LAUNCHED = "com.learner.ACTION_MONITORING_PACKAGE_LAUNCHED";
+
     String EXTRA_PACKAGE_NAME = "extra_package_name";
 }
