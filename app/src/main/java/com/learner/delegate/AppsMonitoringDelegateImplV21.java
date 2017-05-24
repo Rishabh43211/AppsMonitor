@@ -16,9 +16,20 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeSet;
 
+/**
+ * Class represents AppMonitoring Screen for APIs starting LOLLIPOP and Higher.
+ * <p>
+ * Developer: Rishabh Dutt Sharma
+ * Dated: 5/23/2017.
+ */
 public class AppsMonitoringDelegateImplV21 extends AppMonitoringDelegateActivity implements PackageLaunchReceiver.OnPackageReceivedListener {
 
+    /*  Manages the Broadcasts received when Applications are
+        brought to Foreground by the User. */
     private PackageLaunchReceiver mLaunchReceiver;
+
+    /* Keeps the PACKAGE_NAMES brought to Foreground by user
+       during the Application LifeCycle, in Order, Uniquely. */
     private Set<String> mPackagesLaunched = new TreeSet<>();
 
     @Override

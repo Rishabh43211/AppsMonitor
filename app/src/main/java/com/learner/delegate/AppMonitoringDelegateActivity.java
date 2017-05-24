@@ -12,6 +12,14 @@ import com.learner.adapter.AppsListingAdapter;
 
 import java.util.ArrayList;
 
+/**
+ * Basic delegate for MonitoringActivity.
+ * Deals with rendering a List of Apps brought to
+ * foreground by User during the Application-LifeCycle.
+ * <p>
+ * Developer: Rishabh Dutt Sharma
+ * Dated: 5/23/2017.
+ */
 public class AppMonitoringDelegateActivity extends AppCompatActivity {
 
     private RecyclerView rvTasksList;
@@ -31,6 +39,11 @@ public class AppMonitoringDelegateActivity extends AppCompatActivity {
         rvTasksList.setLayoutManager(new LinearLayoutManager(this));
     }
 
+    /**
+     * Display the Tasks List on User-Interface
+     *
+     * @param tasks
+     */
     protected void displayTasks(ArrayList<String> tasks) {
         rvTasksList.setAdapter(new AppsListingAdapter(this, tasks));
     }

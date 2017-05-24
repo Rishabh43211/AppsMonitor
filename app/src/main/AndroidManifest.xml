@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.learner">
 
-
     <!--No longer in required for Accessing Tasks-->
     <!--<uses-permission android:name="android.permission.GET_TASKS" />-->
 
@@ -12,7 +11,7 @@
         tools:ignore="ProtectedPermissions" />
 
     <application
-        android:name=".BaseApplication"
+        android:name=".AppsMonitoringApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -28,11 +27,15 @@
             </intent-filter>
         </activity>
 
+        <!--Used for APIs lower than Lollipop-->
         <activity android:name=".delegate.AppsMonitoringDelegateImplV19" />
+        <!--Used for APIs starting Lollipop and Higher-->
         <activity android:name=".delegate.AppsMonitoringDelegateImplV21" />
 
+        <!--Service for Tracking-Tasks for APIs lower than Lollipop-->
         <service android:name=".taskstracker.TasksTrackingService" />
 
+        <!--Service for Monitoring Apps for APIs starting Lollipop and Higher-->
         <service
             android:name=".accessibility.AppsMonitoringService"
             android:label="@string/app_name"

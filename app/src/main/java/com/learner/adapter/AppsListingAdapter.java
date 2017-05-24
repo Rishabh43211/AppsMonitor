@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Renders the List of PACKAGE_NAMES into Application-Details
+ * (Application Name and Icon).
+ * <p>
  * Developer: Rishabh Dutt Sharma
  * Dated: 5/22/2017.
  */
@@ -56,6 +59,11 @@ public class AppsListingAdapter extends RecyclerView.Adapter<AppsListingAdapter.
             tvApplicationName = (TextView) itemView.findViewById(R.id.tv_application_name);
         }
 
+        /**
+         * Evaluate the Package-Name data and renders in the Item
+         *
+         * @param packageName
+         */
         void render(String packageName) {
             if (tvApplicationName != null)
                 tvApplicationName.setText(Utils.getAppName(mContext, packageName));

@@ -8,6 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Instance of Handler created on UI-THREAD.
+ * <p>
+ * Responsible for Inter-Process-Communication between background
+ * generation of User-Data and posting them on the User-Interface.
+ * <p>
  * Developer: Rishabh Dutt Sharma
  * Dated: 5/23/2017.
  */

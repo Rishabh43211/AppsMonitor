@@ -1,12 +1,16 @@
 package com.learner.accessibility;
 
-
 import android.accessibilityservice.AccessibilityService;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.view.accessibility.AccessibilityEvent;
 
 /**
+ * Constantly Monitors for WINDOW_EVENTS, tracking PACKAGE_NAMES and notifying the
+ * Monitoring-App about PACKAGE encounters.
+ * <p>
+ * [Accessibility Service: Automatically enlists itself in Accessibility Settings.]
+ * <p>
  * Developer: Rishabh Dutt Sharma
  * Dated: 5/23/2017.
  */
