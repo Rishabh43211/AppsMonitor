@@ -6,6 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 
 /**
+ * Responsible for notifying the {@link AppsMonitoringService}
+ * about the LAUNCH and END of {@link com.learner.AppsMonitoringApplication}.
+ * <p>
+ * The {@link AppsMonitoringService} would attempt to send Broadcasts only
+ * and only when the {@link com.learner.AppsMonitoringApplication} is Running.
+ * It beneficial in lowering Battery and CPU usage.
+ * <p>
  * Developer: Rishabh Dutt Sharma
  * Dated: 5/24/2017.
  */
@@ -43,7 +50,6 @@ public class MonitoringAppLifecycleCallbacks implements Application.ActivityLife
 
     @Override
     public void onActivityDestroyed(Activity activity) {
-
         // LOWER STACK TOP
         ACTIVITY_STACK_TOP--;
         // CHECK AND NOTIFY APPLICATION ENDED
@@ -51,6 +57,13 @@ public class MonitoringAppLifecycleCallbacks implements Application.ActivityLife
     }
 
 
+    /**
+     * Notifies the {@link AppsMonitoringService} about the
+     * Launch/End of {@link com.learner.AppsMonitoringApplication}
+     *
+     * @param activity
+     * @param isLaunched
+     */
     private void notifyApplicationLaunched(Activity activity, boolean isLaunched) {
         Intent intent = new Intent(Constant.ACTION_MONITORING_PACKAGE_LAUNCHED);
         intent.putExtra(Constant.EXTRA_PACKAGE_LAUNCH_STATUS, isLaunched);

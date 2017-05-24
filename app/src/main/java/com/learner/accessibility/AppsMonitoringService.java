@@ -21,7 +21,7 @@ public class AppsMonitoringService extends AccessibilityService implements Monit
 
     @Override
     protected void onServiceConnected() {
-        // Assume the Service was Enable as a result of MonitoringApp-Request
+        // Assume that the Service is Enabled as a result of MonitoringApp-Request
         isMonitoringAppRunning = true;
         // Initialize and register a Broadcast Receiver that Listens to Launch Events of Monitoring Service
         mMonitorLaunchReceiver = new MonitorLaunchReceiver(this);

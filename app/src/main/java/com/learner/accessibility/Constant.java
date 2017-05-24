@@ -1,6 +1,8 @@
 package com.learner.accessibility;
 
 /**
+ * Maintains all the Constants used by the Monitoring App
+ * <p>
  * Developer: Rishabh Dutt Sharma
  * Dated: 5/23/2017.
  */

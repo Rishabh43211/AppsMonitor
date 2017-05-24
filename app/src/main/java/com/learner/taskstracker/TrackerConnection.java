@@ -6,6 +6,8 @@ import android.os.Handler;
 import android.os.IBinder;
 
 /**
+ * Responsible for maintaining connection with the {@link TasksTrackingService}.
+ * <p>
  * Developer: Rishabh Dutt Sharma
  * Dated: 5/22/2017.
  */
@@ -16,7 +18,6 @@ public class TrackerConnection implements ServiceConnection {
     public TrackerConnection(Handler handler) {
         this.mHandler = handler;
     }
-
 
     @Override
     public void onServiceConnected(ComponentName name, IBinder service) {

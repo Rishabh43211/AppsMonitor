@@ -23,9 +23,11 @@ public class LauncherActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Class<? extends AppMonitoringDelegateActivity> clazz = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
+        Class<? extends AppMonitoringDelegateActivity> intendedDelegateClass
+                = Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
                 ? AppsMonitoringDelegateImplV21.class : AppsMonitoringDelegateImplV19.class;
-        Intent taskMonitoringIntent = new Intent(this, clazz);
+
+        Intent taskMonitoringIntent = new Intent(this, intendedDelegateClass);
         startActivity(taskMonitoringIntent);
         finish();
     }

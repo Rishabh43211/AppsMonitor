@@ -20,7 +20,7 @@ public class AppsMonitoringApplication extends Application {
         /* {@link MonitoringAppLifecycleCallbacks} ensures that
          * {@link com.learner.accessibility.AppsMonitoringService}
          * knows the Launch and End of this Application, so that it
-         * could send Broadcast only when they're required. */
+         * sends the Broadcasts only when they're required. */
         registerActivityLifecycleCallbacks(new MonitoringAppLifecycleCallbacks());
     }
 }
