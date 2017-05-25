@@ -15,11 +15,11 @@ import android.content.Intent;
  * Developer: Rishabh Dutt Sharma
  * Dated: 5/24/2017.
  */
-public class MonitorLaunchReceiver extends BroadcastReceiver {
+public class OnMonitorLaunchedReceiver extends BroadcastReceiver {
 
     private final OnMonitorStateChangedListener mListener;
 
-    public MonitorLaunchReceiver(OnMonitorStateChangedListener listener) {
+    public OnMonitorLaunchedReceiver(OnMonitorStateChangedListener listener) {
         this.mListener = listener;
     }
 

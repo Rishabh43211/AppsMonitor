@@ -12,11 +12,11 @@ import com.learner.listener.OnPackageReceivedListener;
  * Developer: Rishabh Dutt Sharma
  * Dated: 5/23/2017.
  */
-public class PackageLaunchReceiver extends BroadcastReceiver {
+public class OnPackageLaunchedReceiver extends BroadcastReceiver {
 
     private final OnPackageReceivedListener mListener;
 
-    public PackageLaunchReceiver(OnPackageReceivedListener mListener) {
+    public OnPackageLaunchedReceiver(OnPackageReceivedListener mListener) {
         this.mListener = mListener;
     }
 

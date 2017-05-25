@@ -14,18 +14,18 @@ import android.view.accessibility.AccessibilityEvent;
  * Developer: Rishabh Dutt Sharma
  * Dated: 5/23/2017.
  */
-public class AppsMonitoringService extends AccessibilityService implements MonitorLaunchReceiver.OnMonitorStateChangedListener {
+public class AppsMonitoringService extends AccessibilityService implements OnMonitorLaunchedReceiver.OnMonitorStateChangedListener {
 
     private boolean isMonitoringAppRunning;
-    private MonitorLaunchReceiver mMonitorLaunchReceiver;
+    private OnMonitorLaunchedReceiver mOnMonitorLaunchedReceiver;
 
     @Override
     protected void onServiceConnected() {
         // Assume that the Service is Enabled as a result of MonitoringApp-Request
         isMonitoringAppRunning = true;
         // Initialize and register a Broadcast Receiver that Listens to Launch Events of Monitoring Service
-        mMonitorLaunchReceiver = new MonitorLaunchReceiver(this);
-        registerReceiver(mMonitorLaunchReceiver, new IntentFilter(Constant.ACTION_MONITORING_PACKAGE_LAUNCHED));
+        mOnMonitorLaunchedReceiver = new OnMonitorLaunchedReceiver(this);
+        registerReceiver(mOnMonitorLaunchedReceiver, new IntentFilter(Constant.ACTION_MONITORING_PACKAGE_LAUNCHED));
     }
 
     @Override
@@ -40,7 +40,7 @@ public class AppsMonitoringService extends AccessibilityService implements Monit
 
     @Override
     public void onInterrupt() {
-        unregisterReceiver(mMonitorLaunchReceiver);
+        unregisterReceiver(mOnMonitorLaunchedReceiver);
     }
 
     @Override

@@ -9,7 +9,7 @@ import android.support.v7.app.AlertDialog;
 
 import com.learner.R;
 import com.learner.accessibility.Constant;
-import com.learner.accessibility.PackageLaunchReceiver;
+import com.learner.accessibility.OnPackageLaunchedReceiver;
 import com.learner.Utils;
 
 /**
@@ -22,13 +22,13 @@ public class AppsMonitoringDelegateImplV21 extends AppMonitoringDelegateActivity
 
     /*  Manages the Broadcasts received when Applications are
         brought to Foreground by the User. */
-    private PackageLaunchReceiver mLaunchReceiver;
+    private OnPackageLaunchedReceiver mLaunchReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        mLaunchReceiver = new PackageLaunchReceiver(this);
+        mLaunchReceiver = new OnPackageLaunchedReceiver(this);
         registerReceiver(mLaunchReceiver, new IntentFilter(Constant.ACTION_PACKAGE_LAUNCH_MASK));
     }
 
