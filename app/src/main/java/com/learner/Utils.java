@@ -6,12 +6,10 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.provider.Settings;
+import android.provider.Settings.Secure;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.learner.accessibility.AppsMonitoringService;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * Developer: Rishabh Dutt Sharma
@@ -65,43 +63,36 @@ public class Utils {
      * Evaluate the status (ON/OFF) of the {@link android.accessibilityservice.AccessibilityService}
      * [{@link AppsMonitoringService} in our case].
      *
-     * @param mContext
+     * @param context
      * @return true, if the {@link AppsMonitoringService} is enabled, false otherwise
      */
-    public static boolean isAccessibilitySettingsOn(Context mContext) {
+    public static boolean isAccessibilitySettingsOn(Context context) {
+
         int accessibilityEnabled = 0;
-        final String service = mContext.getPackageName() + "/" + AppsMonitoringService.class.getCanonicalName();
+        Context appContext = context.getApplicationContext();
+
         try {
-            accessibilityEnabled = Settings.Secure.getInt(
-                    mContext.getApplicationContext().getContentResolver(),
-                    android.provider.Settings.Secure.ACCESSIBILITY_ENABLED);
-            Log.v(TAG, "accessibilityEnabled = " + accessibilityEnabled);
+            accessibilityEnabled = Secure.getInt(appContext.getContentResolver(), Secure.ACCESSIBILITY_ENABLED);
+            // SETTING ENABLED
         } catch (Settings.SettingNotFoundException e) {
-            Log.e(TAG, "Error finding setting, default accessibility to not found: " + e.getMessage());
+            // Error finding SETTING, default accessibility to not found
+            e.printStackTrace();
         }
-        TextUtils.SimpleStringSplitter mStringColonSplitter = new TextUtils.SimpleStringSplitter(':');
 
         if (accessibilityEnabled == 1) {
-            Log.v(TAG, "***ACCESSIBILITY IS ENABLED*** -----------------");
-            String settingValue = Settings.Secure.getString(
-                    mContext.getApplicationContext().getContentResolver(),
-                    Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
-            if (settingValue != null) {
-                mStringColonSplitter.setString(settingValue);
-                while (mStringColonSplitter.hasNext()) {
-                    String accessibilityService = mStringColonSplitter.next();
+            // ACCESSIBILITY IS ENABLED
+            String service = context.getPackageName() + "/" + AppsMonitoringService.class.getCanonicalName();
+            String settingValue = Secure.getString(appContext.getContentResolver(), Secure.ENABLED_ACCESSIBILITY_SERVICES);
+            TextUtils.SimpleStringSplitter stringColonSplitter = new TextUtils.SimpleStringSplitter(':');
 
-                    Log.v(TAG, "-------------- > accessibilityService :: " + accessibilityService + " " + service);
-                    if (accessibilityService.equalsIgnoreCase(service)) {
-                        Log.v(TAG, "We've found the correct setting - accessibility is switched on!");
-                        return true;
-                    }
-                }
+            if (settingValue != null) {
+                stringColonSplitter.setString(settingValue);
+                while (stringColonSplitter.hasNext())
+                    // Found the correct Setting - Accessibility is switched on!
+                    if (stringColonSplitter.next().equalsIgnoreCase(service)) return true;
             }
-        } else {
-            Log.v(TAG, "***ACCESSIBILITY IS DISABLED***");
         }
 
-        return false;
+        return false; // Assume accessibility is disabled
     }
 }
