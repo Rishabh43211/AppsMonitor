@@ -4,6 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import com.learner.listener.OnPackageReceivedListener;
+
 /**
  * Broadcast Receiver to process intents broadcast from {@link AppsMonitoringService}
  * <p>
@@ -22,10 +24,5 @@ public class PackageLaunchReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (intent.hasExtra(Constant.EXTRA_PACKAGE_NAME) && mListener != null)
             mListener.onPackageReceived(intent.getStringExtra(Constant.EXTRA_PACKAGE_NAME));
-    }
-
-    public interface OnPackageReceivedListener {
-
-        void onPackageReceived(String packageName);
     }
 }

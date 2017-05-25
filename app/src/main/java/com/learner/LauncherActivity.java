@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.learner.accessibility.Utils;
 import com.learner.delegate.AppMonitoringDelegateActivity;
 import com.learner.delegate.AppsMonitoringDelegateImplV19;
 import com.learner.delegate.AppsMonitoringDelegateImplV21;

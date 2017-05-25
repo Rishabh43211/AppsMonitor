@@ -1,4 +1,4 @@
-package com.learner.accessibility;
+package com.learner;
 
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -8,6 +8,8 @@ import android.os.Build;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.learner.accessibility.AppsMonitoringService;
 
 import static android.content.ContentValues.TAG;
 

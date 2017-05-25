@@ -3,7 +3,6 @@ package com.learner;
 import android.app.Application;
 
 import com.learner.accessibility.MonitoringAppLifecycleCallbacks;
-import com.learner.accessibility.Utils;
 
 /**
  * Monitors the Apps used by the User during Lifetime of

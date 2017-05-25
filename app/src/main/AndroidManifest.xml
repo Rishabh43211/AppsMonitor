@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.learner">
 
-    <!--No longer in required for Accessing Tasks-->
-    <!--<uses-permission android:name="android.permission.GET_TASKS" />-->
+    <!--Required for Accessing Tasks in Foreground for APIs prior to 21-->
+    <uses-permission android:name="android.permission.GET_TASKS" />
 
     <uses-permission
         android:name="android.permission.PACKAGE_USAGE_STATS"

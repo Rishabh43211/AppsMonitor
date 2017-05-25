@@ -23,7 +23,7 @@ public class TasksTrackingService extends Service {
 
     private Timer mTimer;
     private Handler mHandler;
-    private TasksListProvider mTasksListProvider;
+    private ForegroundTaskProvider mTaskProvider;
 
     @Nullable
     @Override
@@ -48,7 +48,7 @@ public class TasksTrackingService extends Service {
 
     void trackTasks(Handler handler) {
         this.mHandler = handler;
-        mTasksListProvider = new TasksListProvider(this);
+        this.mTaskProvider = new ForegroundTaskProvider(this);
         startTrackingTasks();
     }
 
@@ -60,11 +60,12 @@ public class TasksTrackingService extends Service {
         TimerTask timerTask = new TimerTask() {
             @Override
             public void run() {
-                if (mHandler != null) mHandler.obtainMessage(MainHandler.RUNNING_TASKS,
-                        mTasksListProvider.getRunningTasks()).sendToTarget();
+                if (mHandler != null) mHandler.obtainMessage(ThreadUICommBridge.FOREGROUND_TASK,
+                        mTaskProvider.getForegroundTask()).sendToTarget();
             }
         };
-        mTimer = new Timer();
-        mTimer.schedule(timerTask, 0, 5000);
+
+        // Schedule TimerTask with a Timer with periodic execution interval = 2s
+        (mTimer = new Timer()).schedule(timerTask, 0, 2000);
     }
 }
