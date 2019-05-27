@@ -1,5 +1,5 @@
 # AppsMonitor
-Android App to display Apps, brought to foreground by User, after its launch.
+Tracks the other Apps used by User, during its Life-Cycle.
 
 # Support
 The App uses two approaches based on the Device OS :-
